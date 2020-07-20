@@ -50,7 +50,7 @@ public class ClientMessageHandler extends ServerMessageHandler {
         private static final AtomicLong counter = new AtomicLong(1);
         private volatile ChannelHandlerContext ctx;
 
-        public MessageSender(ChannelHandlerContext ctx) {
+        MessageSender(ChannelHandlerContext ctx) {
             this.ctx = ctx;
         }
 
@@ -63,7 +63,7 @@ public class ClientMessageHandler extends ServerMessageHandler {
                     Message message = new Message();
                     message.setMessageType(MessageTypeEnum.REQUEST);
                     message.setBody("this is my " + counter.getAndIncrement() + " message.");
-                    message.addAttachment("name", "xufeng");
+                    message.addAttachment("name", "lj");
                     ctx.writeAndFlush(message);
                 }
             } catch (InterruptedException e) {
