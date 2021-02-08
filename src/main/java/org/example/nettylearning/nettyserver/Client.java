@@ -1,4 +1,4 @@
-package org.example.nettylearning;
+package org.example.nettylearning.nettyserver;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,8 +11,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
-import org.example.nettylearning.encoder.MessageDecoder;
-import org.example.nettylearning.encoder.MessageEncoder;
+import org.example.nettylearning.nettyserver.encoder.MessageDecoder;
+import org.example.nettylearning.nettyserver.encoder.MessageEncoder;
 
 public class Client {
     public static void main(String[] args) {

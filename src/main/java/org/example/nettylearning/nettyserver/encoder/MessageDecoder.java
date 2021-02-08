@@ -1,11 +1,11 @@
-package org.example.nettylearning.encoder;
+package org.example.nettylearning.nettyserver.encoder;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-import org.example.nettylearning.constants.Constants;
-import org.example.nettylearning.Message;
-import org.example.nettylearning.constants.MessageTypeEnum;
+import org.example.nettylearning.nettyserver.constants.Constants;
+import org.example.nettylearning.nettyserver.Message;
+import org.example.nettylearning.nettyserver.constants.MessageTypeEnum;
 
 import java.nio.charset.Charset;
 import java.util.List;

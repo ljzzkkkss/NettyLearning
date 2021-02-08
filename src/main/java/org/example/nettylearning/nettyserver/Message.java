@@ -1,6 +1,6 @@
-package org.example.nettylearning;
+package org.example.nettylearning.nettyserver;
 
-import org.example.nettylearning.constants.MessageTypeEnum;
+import org.example.nettylearning.nettyserver.constants.MessageTypeEnum;
 
 import java.util.Collections;
 import java.util.HashMap;

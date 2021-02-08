@@ -1,7 +1,7 @@
-package org.example.nettylearning.resolver;
+package org.example.nettylearning.nettyserver.resolver;
 
-import org.example.nettylearning.Message;
-import org.example.nettylearning.constants.MessageTypeEnum;
+import org.example.nettylearning.nettyserver.Message;
+import org.example.nettylearning.nettyserver.constants.MessageTypeEnum;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

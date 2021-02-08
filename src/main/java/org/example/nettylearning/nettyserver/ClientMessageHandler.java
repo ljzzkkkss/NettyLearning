@@ -1,9 +1,9 @@
-package org.example.nettylearning;
+package org.example.nettylearning.nettyserver;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
-import org.example.nettylearning.constants.MessageTypeEnum;
+import org.example.nettylearning.nettyserver.constants.MessageTypeEnum;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;

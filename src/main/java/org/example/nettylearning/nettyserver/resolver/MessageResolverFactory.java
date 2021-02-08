@@ -1,6 +1,6 @@
-package org.example.nettylearning.resolver;
+package org.example.nettylearning.nettyserver.resolver;
 
-import org.example.nettylearning.Message;
+import org.example.nettylearning.nettyserver.Message;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
