@@ -1,4 +1,4 @@
-package org.example.nettylearning;
+package org.example.nettylearning.nettyserver;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -9,8 +9,8 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.example.nettylearning.encoder.MessageDecoder;
-import org.example.nettylearning.encoder.MessageEncoder;
+import org.example.nettylearning.nettyserver.encoder.MessageDecoder;
+import org.example.nettylearning.nettyserver.encoder.MessageEncoder;
 
 public class Server {
     public static void main(String[] args) {

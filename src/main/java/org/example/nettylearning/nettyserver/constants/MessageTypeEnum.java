@@ -1,4 +1,4 @@
-package org.example.nettylearning.constants;
+package org.example.nettylearning.nettyserver.constants;
 
 public enum  MessageTypeEnum {
     REQUEST((byte)1), RESPONSE((byte)2), PING((byte)3), PONG((byte)4), EMPTY((byte)5);

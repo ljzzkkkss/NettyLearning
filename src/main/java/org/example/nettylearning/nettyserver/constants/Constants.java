@@ -1,4 +1,4 @@
-package org.example.nettylearning.constants;
+package org.example.nettylearning.nettyserver.constants;
 
 public class Constants {
     public static final int MAGIC_NUMBER = 192;

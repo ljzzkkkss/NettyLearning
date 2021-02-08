@@ -1,8 +1,8 @@
-package org.example.nettylearning;
+package org.example.nettylearning.nettyserver;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.example.nettylearning.resolver.*;
+import org.example.nettylearning.nettyserver.resolver.*;
 
 //服务端消息处理器
 public class ServerMessageHandler extends SimpleChannelInboundHandler<Message> {
