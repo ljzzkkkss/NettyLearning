@@ -19,7 +19,7 @@ public class TimeServer {
         try{
             server = new ServerSocket(port);
             System.out.println("The time server is running on port : " + port);
-            Socket socket = null;
+            Socket socket;
             TimeServerHandlerExecutePool pool = new TimeServerHandlerExecutePool(50,10000);
             while (true){
                 socket = server.accept();
