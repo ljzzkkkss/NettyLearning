@@ -1,12 +1,10 @@
-package org.example.nettylearning.demo1;
+package org.example.nettylearning.demo2;
 
-import java.io.IOException;
+import org.example.nettylearning.demo1.TimeClientHandle;
 
 public class TimeClient {
+    public static void main(String[] args) {
 
-    private static final int BUFFER_SIZE = 1024;
-
-    public static void main(String[] args) throws IOException {
         int port = 8880;
         if(args != null && args.length > 0){
             try {
@@ -17,6 +15,6 @@ public class TimeClient {
             }
         }
 
-        new Thread(new TimeClientHandle("127.0.0.1",port),"NIO-TimeClient-001").start();
+        new Thread(new AsyncTimeClientHandle("127.0.0.1",port),"AIO-AsyncTimeClient-001").start();
     }
 }
