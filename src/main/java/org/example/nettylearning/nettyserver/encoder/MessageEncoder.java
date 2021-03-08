@@ -9,6 +9,7 @@ import org.example.nettylearning.nettyserver.Message;
 import org.example.nettylearning.nettyserver.constants.MessageTypeEnum;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class MessageEncoder extends MessageToByteEncoder<Message> {
@@ -26,23 +27,22 @@ public class MessageEncoder extends MessageToByteEncoder<Message> {
                 // 生成一个sessionId，并将其写入到字节序列中
                 String sessionId = UUID.randomUUID().toString().toLowerCase();
                 message.setSessionId(sessionId);
-                out.writeCharSequence(sessionId, Charset.defaultCharset());
+                out.writeBytes(sessionId.getBytes(StandardCharsets.UTF_8));
             }
             out.writeByte(message.getMessageType().getType());// 写入当前消息的类型
             out.writeShort(message.getAttachments().size());// 写入当前消息的附加参数数量
             message.getAttachments().forEach((key, value) -> {
-                Charset charset = Charset.defaultCharset();
                 out.writeInt(key.length());// 写入键的长度
-                out.writeCharSequence(key, charset);// 写入键数据
+                out.writeBytes(key.getBytes(StandardCharsets.UTF_8));// 写入键数据
                 out.writeInt(value.length());// 希尔值的长度
-                out.writeCharSequence(value, charset);// 写入值数据
+                out.writeBytes(value.getBytes(StandardCharsets.UTF_8));// 写入值数据
             });
 
             if (null == message.getBody()) {
                 out.writeInt(0);// 如果消息体为空，则写入0，表示消息体长度为0
             } else {
                 out.writeInt(message.getBody().length());
-                out.writeCharSequence(message.getBody(), Charset.defaultCharset());
+                out.writeBytes(message.getBody().getBytes(StandardCharsets.UTF_8));
             }
         }
     }

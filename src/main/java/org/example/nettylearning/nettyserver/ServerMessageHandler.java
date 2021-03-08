@@ -10,7 +10,7 @@ public class ServerMessageHandler extends SimpleChannelInboundHandler<Message> {
     private MessageResolverFactory resolverFactory = MessageResolverFactory.getInstance();
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Message message) throws Exception {
+    protected void messageReceived(ChannelHandlerContext ctx, Message message) {
         Resolver resolver = resolverFactory.getMessageResolver(message);// 获取消息处理器
         Message result = resolver.resolve(message);// 对消息进行处理并获取响应数据
         ctx.writeAndFlush(result);// 将响应数据写入到处理器中
