@@ -30,10 +30,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req);
-        String body = new String(req,StandardCharsets.UTF_8);
+        String body = (String) msg;
         logger.info("Now is : " + body + ";The counter is : " + ++counter);
     }
 
