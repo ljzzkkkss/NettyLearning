@@ -11,7 +11,7 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
     private int counter = 0;
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         String body = (String) msg;
         System.out.println("This is " + ++counter + "times receive client: [" + body + "]");
         body += "$_";
@@ -20,7 +20,7 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();//发生异常，关闭链路
     }
