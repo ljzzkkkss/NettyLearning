@@ -1,0 +1,9 @@
+syntax =  "proto3";
+option java_package = "org.example.netty.learning.demo8";
+option java_outer_classname = "SubscribeRespProto";
+
+message SubscribeResp{
+  repeated int32 subReqID = 1;
+  repeated int32 respCode = 2;
+  repeated string desc = 3;
+}
