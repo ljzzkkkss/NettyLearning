@@ -1,4 +1,4 @@
-package org.example.nettylearning.demo7;
+package org.example.nettylearning.demo9;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,11 +8,15 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.marshalling.MarshallingDecoder;
+import io.netty.handler.codec.marshalling.MarshallingEncoder;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import org.jboss.marshalling.Marshalling;
+import org.jboss.marshalling.serial.SerialMarshallerFactory;
 
 public class SubReqServer {
     public static void main(String[] args) {
@@ -43,8 +47,8 @@ public class SubReqServer {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ch.pipeline()
-                                    .addLast(new ObjectDecoder(1024 * 1024, ClassResolvers.weakCachingResolver(this.getClass().getClassLoader())))
-                            .addLast(new ObjectEncoder())
+                            .addLast(MarshallingCodeCFactory.buildMarshallingDecoder())
+                            .addLast(MarshallingCodeCFactory.buildMarshallingEncoder())
                             .addLast(new SubReqServerHandler());
                         }
                     });

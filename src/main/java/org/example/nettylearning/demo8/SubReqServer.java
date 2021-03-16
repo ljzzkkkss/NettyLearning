@@ -45,8 +45,8 @@ public class SubReqServer {
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(SocketChannel socketChannel) {
-                            socketChannel.pipeline()
+                        protected void initChannel(SocketChannel ch) {
+                            ch.pipeline()
                                     .addLast(new ProtobufVarint32FrameDecoder())
                             .addLast(new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()))
                             .addLast(new ProtobufVarint32LengthFieldPrepender())
