@@ -25,7 +25,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
     private static final String CONNECTION = "connection";
     private final String url;
     private static final Pattern INSECURE_URI = Pattern.compile(".*[<>&\"].*");
-    private static final Pattern ALLOWED_FILE_NAME = Pattern.compile(".[A-Za-z0-9][-_A-Za-z0-9\\.]*");
+    private static final Pattern ALLOWED_FILE_NAME = Pattern.compile("[A-Za-z0-9][-_A-Za-z0-9\\.]*");
 
     public HttpFileServerHandler(String url) {
         this.url = url;
@@ -77,7 +77,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             return;
         }
         long fileLength = randomAccessFile.length();
-        HttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,HttpResponseStatus.OK);
+        HttpResponse response = new DefaultHttpResponse(HttpVersion.HTTP_1_1,HttpResponseStatus.OK);
         HttpHeaders.setContentLength(response,fileLength);
         setContentTypeHeader(response,file);
         if(HttpHeaders.isKeepAlive(response)){

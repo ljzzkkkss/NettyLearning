@@ -48,7 +48,7 @@ public class HttpFileServer {
                                     .addLast("http-decoder",new HttpRequestDecoder())
                                     .addLast("http-aggregator",new HttpObjectAggregator(65535))
                                     .addLast("http-encoder",new HttpResponseEncoder())
-                                    .addLast("http-chunk",new ChunkedWriteHandler())
+                                    .addLast("http-chunked",new ChunkedWriteHandler())
                                     .addLast("fileServerHanderl", new HttpFileServerHandler(url));
                         }
                     });
