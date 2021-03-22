@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+     </head>
+ <body>
+    <div>
+        <input type="text" id="message" style="width: 200px;"><input type="button" id="connect" value="连接"><input type="button" id="send" value="发送"><input type="button" id="close" value="关闭">
+        <br />
+        <textarea id="received" placeholder="message..." style="width: 200px;height: 200px;"></textarea>
+    </div>
+    <script>
+        let wsServer =
+            'ws://127.0.0.1:8888/websocket';
+        let websocket;
+        document.getElementById("send").onclick = function (){
+            if(null == websocket || websocket.readyState === websocket.CLOSED){
+                document.getElementById("received").value = "not connected";
+                return;
+            }
+            websocket.send(document.getElementById("message").value);
+        }
+        document.getElementById("close").onclick = function (){
+            if(null == websocket || websocket.readyState === websocket.CLOSED){
+                document.getElementById("received").value = "not connected";
+                return;
+            }
+            websocket.close();
+        }
+        document.getElementById("connect").onclick = function (){
+            websocket = new WebSocket(wsServer);
+            websocket.onopen = function (evt) {
+                console.log('Connected to WebSocket server.');
+            };
+            websocket.onclose = function (evt) {
+                console.log('Disconnected');
+            };
+            websocket.onmessage = function (evt) {
+                console.log('Retrieved data from server: ' + evt.data);
+                document.getElementById("received").value = evt.data;
+            };
+            websocket.onerror = function (evt) {
+                console.log('Error occured: ' + evt.data);
+            };
+        }
+    </script>
+ </body>
+</html>

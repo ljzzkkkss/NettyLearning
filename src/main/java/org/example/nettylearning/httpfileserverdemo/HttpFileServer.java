@@ -1,4 +1,4 @@
-package org.example.nettylearning.httpdemo;
+package org.example.nettylearning.httpfileserverdemo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
